@@ -11,11 +11,16 @@ namespace RecordTypeTable
 {
     public static class EnumerableExtension
     {
-        public static void GetTypeTable<T>(this IEnumerable<T> sequence, FileStream fs = null)
+        public static void GetTypeTable<T>(this IEnumerable<T> sequence, StreamWriter sw)
         {
             if (sequence is null)
             {
                 throw new ArgumentNullException($"{nameof(sequence)} is null.");
+            }
+
+            if (sw is null)
+            {
+                throw new ArgumentNullException($"{nameof(sw)} is null.");
             }
 
             StringBuilder result = new StringBuilder();
@@ -80,18 +85,8 @@ namespace RecordTypeTable
                 result.Append(divider + "\n");
             }
 
-            if (!(fs is null))
-            {
-                StreamWriter sw = new StreamWriter(fs);
-                sw.Write(result.ToString());
-                sw.Close();
-                Console.WriteLine("Table was successfully written.");
-                Process.Start("notepad.exe", fs.Name);
-            }
-            else
-            {
-                Console.Write(result.ToString());
-            }
+            sw.Write(result.ToString());
+            sw.Close();
         }
 
         private static string GetDivider(Queue<RowInfo> queue)

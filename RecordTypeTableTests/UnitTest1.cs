@@ -18,19 +18,25 @@ namespace RecordTypeTableTests
         }
 
         [Test]
-        public void GetTypeTableTimeTests_Console() //926 sec
+        public void GetTypeTableTimeTests_Console() //879 ms
         {
-            records.GetTypeTable();
+            records.GetTypeTable(new StreamWriter(Console.OpenStandardOutput()));
         }
 
         [Test]
-        public void GetTypeTableTimeTests_File() //1 sec
+        public void GetTypeTableTimeTests_File() //617 ms
         {
-            records.GetTypeTable(new FileStream("records.txt", FileMode.Create));
+            records.GetTypeTable(new StreamWriter(new FileStream("records.txt", FileMode.Create)));
         }
 
         [Test]
         public void GetTypeTableTests_IncorrectEnumerable() =>
-            Assert.Throws<ArgumentNullException>((() => nullList.GetTypeTable()));
+            Assert.Throws<ArgumentNullException>((() =>
+                nullList.GetTypeTable(new StreamWriter(Console.OpenStandardOutput()))));
+
+        [Test]
+        public void GetTypeTableTests_IncorrectStreamWriter() =>
+            Assert.Throws<ArgumentNullException>((() =>
+                nullList.GetTypeTable(null)));
     }
 }
