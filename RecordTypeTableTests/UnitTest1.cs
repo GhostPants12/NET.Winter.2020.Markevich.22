@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using NUnit.Framework;
 using RecordTypeTable;
 
@@ -25,7 +26,7 @@ namespace RecordTypeTableTests
         [Test]
         public void GetTypeTableTimeTests_File() //1 sec
         {
-            records.GetTypeTable("records.txt");
+            records.GetTypeTable(new FileStream("records.txt", FileMode.Create));
         }
 
         [Test]

@@ -11,7 +11,7 @@ namespace RecordTypeTable
 {
     public static class EnumerableExtension
     {
-        public static void GetTypeTable<T>(this IEnumerable<T> sequence, string path = null)
+        public static void GetTypeTable<T>(this IEnumerable<T> sequence, FileStream fs = null)
         {
             if (sequence is null)
             {
@@ -80,13 +80,13 @@ namespace RecordTypeTable
                 result.Append(divider + "\n");
             }
 
-            if (!(path is null))
+            if (!(fs is null))
             {
-                StreamWriter sw = new StreamWriter(new FileStream(path, FileMode.Create));
+                StreamWriter sw = new StreamWriter(fs);
                 sw.Write(result.ToString());
                 sw.Close();
                 Console.WriteLine("Table was successfully written.");
-                Process.Start("notepad.exe", path);
+                Process.Start("notepad.exe", fs.Name);
             }
             else
             {
