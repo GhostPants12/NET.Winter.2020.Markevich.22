@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordTypeTable", "RecordTypeTable\RecordTypeTable.csproj", "{ED40CBCD-6673-42BC-BD5C-84B41EC96FF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordTypeTable", "RecordTypeTable\RecordTypeTable.csproj", "{ED40CBCD-6673-42BC-BD5C-84B41EC96FF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordTypeTableTests", "RecordTypeTableTests\RecordTypeTableTests.csproj", "{C57332ED-A0D5-4BE2-8895-D4C1FC5242A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordTypeTableTests", "RecordTypeTableTests\RecordTypeTableTests.csproj", "{C57332ED-A0D5-4BE2-8895-D4C1FC5242A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{D01BD34F-DA71-45EF-83F2-4C9461E8CB2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamDemo", "StreamDemo\StreamDemo.csproj", "{A63F9D53-B88B-42A2-8387-80C4512FECDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamDemo.Tests", "StreamDemo.Tests\StreamDemo.Tests.csproj", "{FE0E51BF-F705-4E96-BC90-45E6695224FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{C57332ED-A0D5-4BE2-8895-D4C1FC5242A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C57332ED-A0D5-4BE2-8895-D4C1FC5242A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C57332ED-A0D5-4BE2-8895-D4C1FC5242A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01BD34F-DA71-45EF-83F2-4C9461E8CB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01BD34F-DA71-45EF-83F2-4C9461E8CB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01BD34F-DA71-45EF-83F2-4C9461E8CB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01BD34F-DA71-45EF-83F2-4C9461E8CB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A63F9D53-B88B-42A2-8387-80C4512FECDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A63F9D53-B88B-42A2-8387-80C4512FECDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A63F9D53-B88B-42A2-8387-80C4512FECDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A63F9D53-B88B-42A2-8387-80C4512FECDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0E51BF-F705-4E96-BC90-45E6695224FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0E51BF-F705-4E96-BC90-45E6695224FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0E51BF-F705-4E96-BC90-45E6695224FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0E51BF-F705-4E96-BC90-45E6695224FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
