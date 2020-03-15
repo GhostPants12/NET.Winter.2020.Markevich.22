@@ -155,20 +155,24 @@ namespace StreamDemo
         public static int BufferedCopy(string sourcePath, string destinationPath)
         {
             InputValidation(sourcePath, destinationPath);
-
             const int bufferSize = 1024;
-            int length;
-            using (FileStream fsr = new FileStream(sourcePath, FileMode.Open, FileAccess.Read))
-            {
-                using (FileStream fsw = new FileStream(destinationPath, FileMode.OpenOrCreate, FileAccess.Write))
-                {
-                    BufferedStream bs = new BufferedStream(fsr, bufferSize);
-                    bs.CopyTo(fsw);
-                    length = (int) fsw.Length;
-                }
-            }
+            using FileStream fsr = new FileStream(sourcePath, FileMode.Open, FileAccess.Read);
+            using BufferedStream br = new BufferedStream(fsr, bufferSize);
+            using FileStream fsw = new FileStream(destinationPath, FileMode.OpenOrCreate, FileAccess.Write);
+            using BufferedStream bw = new BufferedStream(fsw, bufferSize);
 
-            return length;
+            byte[] buffer = new byte[bufferSize];
+            int readBytes = 0;
+            int total = readBytes;
+            do
+            {
+                readBytes = br.Read(buffer, 0, bufferSize);
+                bw.Write(buffer, 0, readBytes);
+                total += readBytes;
+            } 
+            while (readBytes == bufferSize);
+
+            return total;
         }
 
         #endregion
