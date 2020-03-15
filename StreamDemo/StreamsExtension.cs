@@ -51,19 +51,26 @@ namespace StreamDemo
             // TODO: step 2. Create byte array on base string content - use  System.Text.Encoding class
             byte[] byteArr = Encoding.UTF8.GetBytes(read);
             // TODO: step 3. Use MemoryStream instance to read from byte array (from step 2)
-            MemoryStream ms = new MemoryStream(byteArr);
+            MemoryStream ms = new MemoryStream();
+            int i = 0;
+            int counter = 0;
+            while (i < byteArr.Length)
+            {
+                ms.WriteByte(byteArr[i++]);
+                counter++;
+            }
             // TODO: step 4. Use MemoryStream instance (from step 3) to write it content in new byte array
             byte[] byteArrResult = new byte[ms.Length];
             int readByte;
-            int counter = 0;
-            while ((readByte = ms.ReadByte()) != -1)
+            counter = 0;
+            ms.Seek(0, SeekOrigin.Begin);
+            while (counter < ms.Length)
             {
-                byteArrResult[counter] = (byte) readByte;
-                counter++;
+                byteArrResult[counter++] = Convert.ToByte(ms.ReadByte());
             }
             ms.Close();
             // TODO: step 5. Use Encoding class instance (from step 2) to create char array on byte array content
-            string write = Encoding.UTF8.GetString(byteArrResult);
+            char[] write = Encoding.UTF8.GetChars(byteArrResult);
             // TODO: step 6. Use StreamWriter here to write char array content in new file
             StreamWriter sw = new StreamWriter(destinationPath);
             sw.Write(write);
